@@ -1,16 +1,57 @@
-# React + Vite
+# README IA generator | Gerador de README utilizando inteligência artificial para projetos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O README IA generator é um sistema de geração de README automatizado utilizando inteligência artificial, projetado para facilitar a criação de documentações completas para projetos em segundos. Com base na estrutura e arquivos do projeto, o sistema utiliza algoritmos de IA para extrair informações e gerar um README personalizado.
 
-Currently, two official plugins are available:
+## Equipe e Desenvolvedores
+* Amand4May
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tecnologias Principais
+* React
+* Node.js
 
-## React Compiler
+### Bibliotecas e Ferramentas
+* Adm-zip
+* Multer
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Funcionalidades
+* Geração de README automatizada utilizando inteligência artificial
+* Suporte a dois modos de geração: manual e com arquivo ZIP do projeto
+* Integração com API para gerar README com IA
+* Suporte a tema escuro e claro
+* Opção de copiar e baixar README gerado
 
-## Expanding the ESLint configuration
+## Estrutura do Projeto
+```text
+readme-generator-front/
+src/
+App.jsx
+index.css
+main.jsx
+package.json
+vite.config.js
+...
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Instalação e Execução
+1. Clone o repositório:
+```bash
+git clone https://github.com/Amand4May/readme-generator-front.git
+```
+2. Entre na pasta:
+```bash
+cd readme-generator-front
+```
+3. Instale as dependências:
+```bash
+npm install
+```
+4. Execute:
+```bash
+npm run dev
+```
+
+## Variáveis de Ambiente
+Não aplicável
+
+---
+© 2026 README IA generator. Todos os direitos reservados.
