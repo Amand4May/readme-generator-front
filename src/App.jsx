@@ -4,10 +4,10 @@ const backgroundVideoUrl = ''
 
 const floatingTech = [
   { label: 'React', glyph: '</>', type: 'front', top: '10%', left: '8%', delay: '0s' },
-  { label: 'UI', glyph: '▣', type: 'front', top: '24%', left: '82%', delay: '0.8s' },
-  { label: 'TypeScript', glyph: 'TS', type: 'front', top: '62%', left: '10%', delay: '1.2s' },
-  { label: 'Node.js', glyph: '{}', type: 'back', top: '18%', left: '70%', delay: '0.4s' },
-  { label: 'API', glyph: 'API', type: 'back', top: '72%', left: '76%', delay: '1.6s' },
+  { label: 'UI', glyph: '▣', type: 'front', top: '36%', left: '82%', delay: '0.8s' },
+  { label: 'TypeScript', glyph: 'TS', type: 'front', top: '54%', left: '10%', delay: '1.2s' },
+  { label: 'Node.js', glyph: '{}', type: 'back', top: '16%', left: '78%', delay: '0.4s' },
+  { label: 'API', glyph: 'API', type: 'back', top: '72%', left: '79%', delay: '1.6s' },
   { label: 'Git', glyph: '≋', type: 'back', top: '78%', left: '18%', delay: '2s' },
 ]
 
@@ -86,13 +86,13 @@ function App() {
         body: shouldUseZip
           ? payload
           : JSON.stringify({
-              ...formData,
-              modo: 'manual',
-            })
+            ...formData,
+            modo: 'manual',
+          })
       })
 
       const dados = await resposta.json()
-      
+
       if (dados.readme) {
         setReadmeGerado(dados.readme)
       } else {
@@ -105,7 +105,7 @@ function App() {
     } finally {
       setLoading(false)
     }
-    
+
   }
 
   const copiarParaAreaDeTransferencia = () => {
@@ -118,18 +118,14 @@ function App() {
       return
     }
 
-    const nomeArquivo = (formData.nome || 'README')
-      .trim()
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '') || 'readme'
-
+    // Cria o arquivo virtual com o conteúdo gerado
     const blob = new Blob([readmeGerado], { type: 'text/markdown;charset=utf-8' })
     const url = window.URL.createObjectURL(blob)
     const link = document.createElement('a')
 
     link.href = url
-    link.download = `${nomeArquivo}.md`
+    // Define o nome fixo do arquivo aqui:
+    link.download = 'README.md'
     link.click()
 
     window.URL.revokeObjectURL(url)
