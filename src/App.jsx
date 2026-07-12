@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react'
 
-const backgroundVideoUrl = ''
-
 const floatingTech = [
-  { label: 'React', glyph: '</>', type: 'front', top: '10%', left: '8%', delay: '0s' },
+  { label: 'React', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg', type: 'front', top: '10%', left: '8%', delay: '0s' },
   { label: 'UI', glyph: '▣', type: 'front', top: '36%', left: '82%', delay: '0.8s' },
-  { label: 'TypeScript', glyph: 'TS', type: 'front', top: '54%', left: '10%', delay: '1.2s' },
-  { label: 'Node.js', glyph: '{}', type: 'back', top: '16%', left: '78%', delay: '0.4s' },
+  { label: 'TypeScript', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg', type: 'front', top: '54%', left: '10%', delay: '1.2s' },
+  { label: 'Node.js', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg', type: 'back', top: '16%', left: '78%', delay: '0.4s' },
   { label: 'API', glyph: 'API', type: 'back', top: '72%', left: '79%', delay: '1.6s' },
-  { label: 'Git', glyph: '≋', type: 'back', top: '78%', left: '18%', delay: '2s' },
+  { label: 'Git', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg', type: 'back', top: '78%', left: '18%', delay: '2s' },
 ]
 
 function App() {
@@ -137,13 +135,6 @@ function App() {
 
   return (
     <div className="app-shell" data-theme={theme}>
-      <div className="video-layer" aria-hidden="true">
-        <video className="background-video" autoPlay loop muted playsInline preload="auto" poster="">
-          <source src={backgroundVideoUrl} type="video/mp4" />
-        </video>
-        <div className="video-overlay" />
-      </div>
-
       <div className="floating-tech-layer" aria-hidden="true">
         {floatingTech.map((item) => (
           <div
@@ -151,7 +142,11 @@ function App() {
             className={`floating-tech floating-tech--${item.type}`}
             style={{ top: item.top, left: item.left, animationDelay: item.delay }}
           >
-            <span className="floating-tech__glyph">{item.glyph}</span>
+            {item.image ? (
+              <img src={item.image} alt={`Ícone do ${item.label}`} className="floating-tech__image" />
+            ) : (
+              <span className="floating-tech__glyph">{item.glyph}</span>
+            )}
             <span className="floating-tech__label">{item.label}</span>
           </div>
         ))}
@@ -168,8 +163,31 @@ function App() {
               </p>
             </div>
 
-            <button type="button" className="theme-toggle" onClick={alternarTema}>
-              {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+            <button
+              type="button"
+              className="theme-toggle"
+              onClick={alternarTema}
+              aria-label="Alternar tema"
+            >
+              {theme === 'dark' ? (
+                // Icone de Sol
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="5"></circle>
+                  <line x1="12" y1="1" x2="12" y2="3"></line>
+                  <line x1="12" y1="21" x2="12" y2="23"></line>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                  <line x1="1" y1="12" x2="3" y2="12"></line>
+                  <line x1="21" y1="12" x2="23" y2="12"></line>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+              ) : (
+                // Icone de Lua
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+              )}
             </button>
           </div>
 
@@ -271,13 +289,35 @@ function App() {
                   </button>
                 </div>
               </div>
+              {readmeGerado && (
+                <div className="ai-warning-box">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="ai-warning-icon"
+                  >
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                  </svg>
+                  <p>
+                    <strong>Aviso:</strong> Este README foi gerado por Inteligência Artificial lendo o seu código. A IA pode cometer erros ou omitir contextos de negócios. <strong>Sempre revise o arquivo</strong> antes de publicá-lo no seu repositório.
+                  </p>
+                </div>
+              )}
               <textarea readOnly className="result-output" value={readmeGerado} />
             </section>
           )}
 
           <footer className="panel-footer">
-            <span>Feito por <a className='eu' href="https://github.com/Amand4May" target="_blank" rel="noopener noreferrer">@Amand4May</a></span>
-            <span>Interface, animação e leitura responsiva em um só lugar.</span>
+            <span>Feito por <a className='eu' href="https://github.com/Amand4May" target="_blank" rel="noopener noreferrer">@Amand4May</a>.</span>
           </footer>
         </section>
       </main>

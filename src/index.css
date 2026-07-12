@@ -10,8 +10,8 @@
   -moz-osx-font-smoothing: grayscale;
   color: #f5f3ff;
   background:
-    radial-gradient(circle at top, rgba(147, 51, 234, 0.35), transparent 32%),
-    #090410;
+    radial-gradient(circle at top, rgba(234, 51, 188, 0.767), transparent 32%),
+    #ff20c7;
 }
 
 * {
@@ -28,8 +28,8 @@ body {
   margin: 0;
   min-height: 100svh;
   background:
-    radial-gradient(circle at top, rgba(139, 92, 246, 0.3), transparent 30%),
-    linear-gradient(180deg, #08040f 0%, #12081f 42%, #05020a 100%);
+    radial-gradient(circle at top, rgba(233, 92, 246, 0.3), transparent 30%),
+    linear-gradient(180deg, #0f0404 0%, #2b0c1b 42%, #000000 100%);
 }
 
 button,
@@ -91,32 +91,6 @@ textarea {
   --accent: #6d28d9;
   --accent-strong: #5b21b6;
   --accent-soft: rgba(109, 40, 217, 0.1);
-}
-
-.video-layer {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.background-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.12);
-  filter: blur(14px) saturate(1.6) brightness(0.42) hue-rotate(250deg);
-}
-
-.video-overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(202, 138, 255, 0.24), transparent 24%),
-    radial-gradient(circle at 78% 30%, rgba(56, 189, 248, 0.16), transparent 20%),
-    radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.2), transparent 28%),
-    linear-gradient(180deg, rgba(7, 4, 15, 0.24) 0%, rgba(7, 4, 15, 0.66) 56%, rgba(6, 2, 12, 0.9) 100%);
-  backdrop-filter: blur(8px);
 }
 
 .floating-tech-layer {
@@ -202,7 +176,7 @@ textarea {
   letter-spacing: 0.24em;
   font-size: 0.73rem;
   font-weight: 800;
-  color: var(--accent);
+  color: rgb(255, 50, 136);
 }
 
 .app-panel h1,
@@ -361,8 +335,8 @@ textarea {
   font-size: 1rem;
   font-weight: 800;
   color: white;
-  background: linear-gradient(135deg, var(--accent-strong), #ec4899);
-  box-shadow: 0 18px 30px rgba(109, 40, 217, 0.3);
+  background: linear-gradient(135deg, rgb(188, 73, 255), rgb(255, 1, 65));
+  box-shadow: 0 15px 15px rgba(219, 34, 74, 0.137);
 }
 
 .submit-button:disabled {
@@ -427,12 +401,12 @@ textarea {
 }
 
 .eu{
-  color: rgb(255, 145, 213);
+  color: rgb(255, 24, 139);
   text-decoration: underline;
   transition: color 0.2s;
 
   &:hover {
-    color: rgba(255, 36, 138, 0.8);
+    color: rgba(7, 114, 255, 0.8);
   }
 }
 
@@ -503,4 +477,84 @@ textarea {
   .floating-tech__label {
     font-size: 0.76rem;
   }
+}
+
+.floating-tech__image {
+  width: 32px; /* Ajuste o tamanho conforme achar melhor */
+  height: 32px;
+  object-fit: contain;
+  margin-bottom: 4px; /* Dá um respiro entre a logo e o texto */
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Deixa o botão quadrado perfeito */
+  height: 40px;
+  border-radius: 50%; /* Deixa o botão redondo (opcional) */
+  padding: 8px;
+  cursor: pointer;
+  background: transparent; /* Ou a cor de fundo que você já usa */
+  color: inherit;
+  border: 1px solid currentColor; /* Opcional: bordinha com a mesma cor do ícone */
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  opacity: 0.8;
+  transform: scale(1.05); /* Efeito sutil ao passar o mouse */
+}
+
+/* Estilo padrão (Dark Mode) */
+.floating-tech {
+  background: rgba(20, 20, 30, 0.6); /* Fundo escuro semi-transparente */
+  color: #ffffff; /* Texto branco */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* ... mantenha o resto do seu CSS atual de flexbox, padding, etc ... */
+}
+
+/* Estilo para o Light Mode */
+[data-theme='light'] .floating-tech {
+  background: rgba(255, 255, 255, 0.8); /* Fundo claro semi-transparente */
+  color: #1a1a1a; /* Texto escuro */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Uma sombra leve ajuda a destacar no fundo */
+}
+
+/* Estilo Padrão do Aviso (Dark Mode) */
+.ai-warning-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(255, 170, 0, 0.1); /* Fundo alaranjado bem suave */
+  border: 1px solid rgba(255, 170, 0, 0.3); /* Bordinha laranja */
+  color: #e6a800; /* Texto puxado pro mostarda/laranja */
+  padding: 14px 16px;
+  border-radius: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.ai-warning-box p {
+  margin: 0;
+}
+
+.ai-warning-box strong {
+  font-weight: 600;
+}
+
+.ai-warning-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Ajuste para o Light Mode */
+[data-theme='light'] .ai-warning-box {
+  background: rgba(255, 153, 0, 0.15);
+  border-color: rgba(255, 153, 0, 0.4);
+  color: #b36b00; /* Laranja mais escuro para dar contraste no fundo branco */
 }
