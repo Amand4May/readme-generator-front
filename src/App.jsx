@@ -122,7 +122,6 @@ function App() {
     const link = document.createElement('a')
 
     link.href = url
-    // Define o nome fixo do arquivo aqui:
     link.download = 'README.md'
     link.click()
 
