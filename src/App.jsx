@@ -78,7 +78,7 @@ function App() {
         }
       }
 
-      const resposta = await fetch('http://localhost:3000/api/generate', {
+      const resposta = await fetch('https://readme-generator-api.onrender.com/', {
         method: 'POST',
         headers: shouldUseZip ? undefined : { 'Content-Type': 'application/json' },
         body: shouldUseZip
